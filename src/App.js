@@ -1,25 +1,8 @@
 import React, { Component } from 'react';
 import io from 'socket.io-client';
 import './App.css';
-
-class MessageItem extends Component {
-  render() {
-    const message = this.props.message;
-    return (
-      <div className="MessageItem">
-        <div className="MessageItem__user" />
-        <div className="MessageItem__content">
-          <div className="MessageItem__body">
-            <div className="MessageItem__title">{message.from}</div>
-            <div className="MessageItem__text">{message.body}</div>
-            {message.img && <div className="MessageItem__img"><img src={message.img} /></div>}
-          </div>
-          <div className="MessageItem__date">{message.date}</div>
-        </div>
-      </div>
-    )
-  }
-}
+import Input from './Input';
+import MessageList from './MessageList';
 
 class App extends Component {
   state = {
@@ -29,13 +12,13 @@ class App extends Component {
 
   componentDidMount() {
     this.socket = io('http://1b850b86.ngrok.io/');
-    console.log('this.socket', this.socket);
     this.socket.on('new received message', (data) => {
       this.addMessage(data);
     });
   }
 
   handleSubmit = (event) => {
+    // Enter Event
     if (event.which === 13) {
       const value = event.target.value;
       const messages = this.state.messages;
@@ -76,15 +59,16 @@ class App extends Component {
         </div>
         <div className="App__content">
           <div className="MessageList">
-            {messages.map(function(message, key) {
-              return <MessageItem key={key} message={message} />;
-            })}
+            <div className="MessageItem">
+              <div className="MessageItem__user"></div>
+              <div className="MessageItem__content">
+                <div className="MessageItem__body">{inputValue}</div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="App__footer">
-          <div className="input">
-            <input placeholder="Type a message" value={inputValue} onChange={this.handleChange} onKeyDown={this.handleSubmit} />
-          </div>
+          <Input inputValue={inputValue} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         </div>
       </div>
     );
