@@ -2,21 +2,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
   background: #eee;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.MessageList {
-  width: 500px;
-  margin: 20px auto;
-}
-
-.MessageList .MessageItem {
-  padding: 5px;
-  background: #fff;
-  border: 1px solid #fafeff;
-}
-
-.MessageList .MessageItem + .MessageItem {
-  margin-top: 15px;
+* {
+  box-sizing: border-box;
 }

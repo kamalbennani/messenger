@@ -1,28 +1,112 @@
+
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #e6ecf5;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.App__header {
+  background: #4080ff;
+  padding: 15px;
+  line-height: 1;
+  border-bottom: 1px solid #e6ecf5;
+  width: 100%;
+  position: relative;
+  border-radius: 5px 5px 0 0;
+  font-weight: 600;
+  color: #fff;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.App__content {
+  min-height: 300px;
+  overflow-y: auto;
+  width: 100%;
+  padding: 15px;  
 }
 
-.App-title {
-  font-size: 1.5em;
+.MessageList {
+  width: 500px;
+  margin: 20px auto;
 }
 
-.App-intro {
-  font-size: large;
+.MessageList .MessageItem {
+  overflow: hidden;
+  padding: 9px 25px;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.MessageList .MessageItem > * {
+  display: inline-block;
+ }
+
+ .MessageList .MessageItem .MessageItem__user {
+  width: 40px;
+  height: 40px;
+  background: #eee;
+  vertical-align: top;
+  border-radius: 50%;
+}
+
+.MessageList .MessageItem .MessageItem__content {
+  padding-left: 10px;
+  width: 75%;
+  max-width: 90%;
+}
+
+.MessageItem__title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: lowercase;
+}
+
+.MessageItem__body {
+  padding: 13px;
+  background-color: #f0f4f9;
+  margin-top: 0;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.MessageItem__date {
+  display: block;
+  float: left;
+  font-size: 10px;
+  margin-top: 0;
+}
+
+.MessageList .MessageItem + .MessageItem {
+  margin-top: 15px;
+}
+
+.input {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 1em;
+  width: calc(100% - 2em);
+  vertical-align: top;
+  margin-top: 2em;
+}
+
+input {
+  padding: 0.85em 0.5em;
+  width: 100%;
+  background: transparent;
+  color: #DDE2E2;
+  opacity: 1;
+  transition: opacity 0.3s;
+  position: relative;
+  display: block;
+  float: right;
+  padding: 0.8em;
+  border: none;
+  border-radius: 5px;
+  background: #f0f0f0;
+  color: #aaa;
+  font-weight: bold;
+  -webkit-appearance: none;
 }
